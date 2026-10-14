@@ -486,17 +486,19 @@ section {
   margin-bottom: 1.5rem;
   min-height: 2.2rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .typed-cursor {
   display: inline-block;
-  width: 10px;
-  height: 1.3em;
+  width: 8px;
+  height: 1.2em;
   background-color: var(--neon-green);
   animation: blink 1s infinite;
   vertical-align: middle;
+  margin-left: 2px;
 }
 
 @keyframes blink {

@@ -7,7 +7,7 @@
  * ==========================================================================
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initPortfolio() {
   "use strict";
 
   // ==========================================================================
@@ -182,16 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   const typingElement = document.getElementById("typing-text");
   const wordsToType = [
-    "Mahasiswa Teknik Informatika",
+    "Mahasiswa S1 Teknik Informatika",
     "Bot & Automation Developer",
     "Game & Interactive Web Creator",
     "Penggemar Kode Bersih & Open Source",
   ];
 
   let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingDelay = 100;
+  // Mulai dari kata pertama yang sudah ada di HTML agar tidak pernah kosong
+  let charIndex = wordsToType[0].length;
+  let isDeleting = true;
+  let typingDelay = 2500; // Tahan kata awal selama 2.5 detik sebelum mulai menghapus
 
   const typeWriterEffect = () => {
     if (!typingElement) return;
@@ -201,29 +202,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isDeleting) {
       typingElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
-      typingDelay = 50; // Lebih cepat saat menghapus
+      typingDelay = 40; // Menghapus dengan cepat
     } else {
       typingElement.textContent = currentWord.substring(0, charIndex + 1);
       charIndex++;
-      typingDelay = 100; // Kecepatan normal saat mengetik
+      typingDelay = 90; // Mengetik
     }
 
     if (!isDeleting && charIndex === currentWord.length) {
       // Jeda setelah selesai mengetik satu kata penuh
       isDeleting = true;
-      typingDelay = 2000;
+      typingDelay = 2200;
     } else if (isDeleting && charIndex === 0) {
-      // Berpindah ke kata berikutnya
+      // Berpindah ke kata berikutnya segera (jeda singkat 250ms agar tidak terasa kosong)
       isDeleting = false;
       wordIndex = (wordIndex + 1) % wordsToType.length;
-      typingDelay = 500;
+      typingDelay = 250;
     }
 
     setTimeout(typeWriterEffect, typingDelay);
   };
 
-  // Mulai animasi typing
-  typeWriterEffect();
+  // Mulai animasi typing (akan menunggu jeda awal 2.5s lalu siklus berjalan)
+  setTimeout(typeWriterEffect, typingDelay);
 
   // ==========================================================================
   // 5. TOGGLE TEMA (DARK / LIGHT MODE DENGAN LOCALSTORAGE)
@@ -417,4 +418,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearElem) {
     yearElem.textContent = new Date().getFullYear();
   }
-});
+}
+
+// Eksekusi aman: jika DOM sudah siap (misal di mobile/cache), langsung jalankan
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortfolio);
+} else {
+  initPortfolio();
+}
