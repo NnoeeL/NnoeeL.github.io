@@ -639,6 +639,7 @@ section {
   color: var(--neon-green);
   text-shadow: 0 0 12px var(--glow-green);
   object-fit: cover;
+  image-rendering: pixelated;
 }
 
 .profile-name {
