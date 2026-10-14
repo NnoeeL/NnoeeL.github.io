@@ -99,7 +99,7 @@ Portofolio ini dapat di-hosting secara gratis selamanya menggunakan **GitHub Pag
 
 ## 📝 Catatan Asumsi & Fitur Utama
 
-- **Identitas Default:** Muhammad Farrel (Noel) / @NnoeeL, Mahasiswa S1 Teknik Informatika Universitas Siliwangi (UNSIL) semester 4.
+- **Identitas Default:** Muhammad Farrel (Noel) / @NnoeeL, Mahasiswa S1 Teknik Informatika Universitas Siliwangi (UNSIL) semester 1.
 - **Warna & Aksen:** Latar belakang dark slate (`#0b0f17`), neon emerald (`#10b981`), neon cyan (`#06b6d4`), dan neon purple (`#8b5cf6`).
 - **Font Terintegrasi:** *JetBrains Mono* (kode, header, badge, prompt) dan *Plus Jakarta Sans* (paragraf & navigasi).
 - **Aksesibilitas & Kerapian:** Menyertakan Semantic HTML5, aria-labels pada tombol interaktif, meta tag Open Graph untuk preview link saat dibagikan ke WhatsApp/sosmed, dan fitur salin email instan ke clipboard.
