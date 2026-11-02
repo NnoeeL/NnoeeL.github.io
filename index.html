@@ -1,44 +1,45 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="day">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Farrel (Noel) | Mahasiswa Informatika & Web Developer</title>
+  <title>Muhammad Farrel (Noel) | 潮風のポートフォリオ • Anime Pastel Seaside Portfolio</title>
 
   <!-- Meta SEO & Open Graph -->
   <meta name="description"
-    content="Portofolio Muhammad Farrel (Noel) - Mahasiswa S1 Teknik Informatika Universitas Siliwangi (UNSIL) yang berfokus pada pengembangan bot, game logic, dan aplikasi web modern.">
+    content="Portofolio Muhammad Farrel (Noel) - Mahasiswa S1 Teknik Informatika Universitas Siliwangi (UNSIL). Bertema anime Jepang bernuansa pantai soft pastel dengan simulasi ombak realistis.">
   <meta name="author" content="Muhammad Farrel (Noel)">
   <meta name="keywords"
-    content="Muhammad Farrel, Noel, NnoeeL, Portofolio, Mahasiswa Informatika, UNSIL, Web Developer, JavaScript, Node.js, Luau, Roblox Developer">
+    content="Muhammad Farrel, Noel, NnoeeL, Portofolio Anime, UNSIL, Informatika, Web Developer, Pastel Aesthetic, Gerstner Waves, JavaScript, Node.js, Luau">
   <link rel="canonical" href="https://nnoeel.github.io/">
 
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:title" content="Muhammad Farrel (Noel) | Portofolio Informatika">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Muhammad Farrel (Noel) | 潮風のポートフォリオ">
   <meta property="og:description"
-    content="Koleksi proyek bot otomatisasi, game development, dan aplikasi web oleh Muhammad Farrel (Noel).">
+    content="Portofolio bertema pantai anime Jepang dan soft pastel karya Muhammad Farrel (Noel) — Mahasiswa S1 Teknik Informatika UNSIL.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nnoeel.github.io/">
-  <meta property="og:image" content="https://nnoeel.github.io/assets/profile.jpg">
+  <meta property="og:image" content="https://nnoeel.github.io/assets/beach-anime.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Muhammad Farrel (Noel) | Portofolio Informatika">
+  <meta name="twitter:title" content="Muhammad Farrel (Noel) | 潮風のポートフォリオ">
   <meta name="twitter:description"
-    content="Koleksi proyek bot otomatisasi, game development, dan aplikasi web oleh Muhammad Farrel (Noel).">
-  <meta name="twitter:image" content="https://nnoeel.github.io/assets/profile.jpg">
+    content="Portofolio bertema pantai anime Jepang dan soft pastel karya Muhammad Farrel (Noel) — Mahasiswa S1 Teknik Informatika UNSIL.">
+  <meta name="twitter:image" content="https://nnoeel.github.io/assets/beach-anime.jpg">
 
-  <!-- Favicon SVG (Terminal Prompt Icon) -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 17 10 11 4 5'></polyline><line x1='12' y1='19' x2='20' y2='19'></line></svg>">
+  <!-- Favicon SVG: Pastel Anime Neko Coastal Logo -->
+  <link rel="icon" type="image/svg+xml" href="assets/portfolio-logo.svg">
 
-  <!-- Google Fonts Preconnect & Stylesheet -->
+  <!-- Google Fonts: Direct preconnect to eliminate FOUT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
 
-  <!-- Font Awesome 6 CDN untuk Ikon Ringan -->
+  <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -48,30 +49,71 @@
 </head>
 
 <body>
+  <!-- BACKGROUND LAYERS: Anime Backdrop, Cloud Parallax & Particle Wind -->
+  <div class="sky-background" id="sky-bg">
+    <div class="sky-gradient-layer"></div>
+    <div class="sky-anime-art" style="background-image: url('assets/beach-anime.jpg');"></div>
+    <div class="sky-overlay-blend"></div>
+    <div class="sun-glimmer" aria-hidden="true"></div>
+  </div>
 
-  <!-- ==================== 1. NAVBAR STICKY ==================== -->
+  <!-- Falling Sakura Petals & Sea Breeze Sparkles Canvas -->
+  <canvas id="petal-canvas" class="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
   <header class="navbar" id="navbar">
-    <div class="container">
+    <div class="container nav-container">
       <a href="#beranda" class="nav-brand">
-        <span class="brand-icon"><i class="fa-solid fa-terminal"></i></span>
-        <span>~/noel <span class="text-green">$</span></span>
+        <div class="brand-logo-container" aria-hidden="true">
+          <img src="assets/portfolio-logo.svg" alt="Noel Portfolio Logo" class="brand-portfolio-logo">
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">Muhammad Farrel</span>
+          <span class="brand-subtitle">~/noel • 潮風の港</span>
+        </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="nav-links">
-        <a href="#beranda" class="nav-link active">Beranda</a>
-        <a href="#tentang" class="nav-link">Tentang</a>
-        <a href="#skill" class="nav-link">Skill</a>
-        <a href="#proyek" class="nav-link">Proyek</a>
-        <a href="#perjalanan" class="nav-link">Perjalanan</a>
-        <a href="#kontak" class="nav-link">Kontak</a>
+      <nav class="nav-links" aria-label="Navigasi Utama">
+        <a href="#beranda" class="nav-link active"><span class="nav-jp">概要</span> Beranda</a>
+        <a href="#tentang" class="nav-link"><span class="nav-jp">紹介</span> Tentang</a>
+        <a href="#ombak" class="nav-link"><span class="nav-jp">波辺</span> Ombak</a>
+        <a href="#skill" class="nav-link"><span class="nav-jp">技術</span> Skill</a>
+        <a href="#proyek" class="nav-link"><span class="nav-jp">作品</span> Proyek</a>
+        <a href="#perjalanan" class="nav-link"><span class="nav-jp">軌跡</span> Perjalanan</a>
+        <a href="#kontak" class="nav-link"><span class="nav-jp">連絡</span> Kontak</a>
       </nav>
 
-      <!-- Action Buttons (Theme Toggle & Mobile Hamburger) -->
+      <!-- Nav Actions: Sound Synth & Atmosphere Switcher -->
       <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Ganti Tema Tampilan">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        <!-- Ocean Waves Ambient Sound Button -->
+        <button class="coastal-audio-btn" id="audio-toggle-btn" title="Nyalakan/Matikan Suara Rileks Ombak Pantai (Web Audio)"
+          aria-label="Putar Suara Ombak">
+          <span class="audio-bars" aria-hidden="true">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+          </span>
+          <span class="audio-text">潮騒</span>
         </button>
+
+        <!-- Atmosphere Preset Bar (Day / Sunset / Night) -->
+        <div class="atmosphere-bar" role="group" aria-label="Pilih Suasana Waktu">
+          <button class="atmo-btn active" data-atmo="day" title="Siang Hari (Soft Pastel Day)">
+            <i class="fa-solid fa-sun"></i>
+            <span class="atmo-kanji">昼</span>
+          </button>
+          <button class="atmo-btn" data-atmo="sunset" title="Senja Pantai (Sunset Twilight)">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span class="atmo-kanji">夕</span>
+          </button>
+          <button class="atmo-btn" data-atmo="night" title="Malam Tenang (Moonlit Coast)">
+            <i class="fa-solid fa-moon"></i>
+            <span class="atmo-kanji">夜</span>
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Toggle -->
         <button class="hamburger" id="hamburger" aria-label="Buka Menu Navigasi" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -79,237 +121,409 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Drawer -->
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#beranda" class="nav-link">Beranda</a>
-    <a href="#tentang" class="nav-link">Tentang</a>
-    <a href="#skill" class="nav-link">Skill</a>
-    <a href="#proyek" class="nav-link">Proyek</a>
-    <a href="#perjalanan" class="nav-link">Perjalanan</a>
-    <a href="#kontak" class="nav-link">Kontak</a>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-drawer-content">
+      <a href="#beranda" class="mobile-link"><span class="nav-jp">概要</span> Beranda</a>
+      <a href="#tentang" class="mobile-link"><span class="nav-jp">紹介</span> Tentang</a>
+      <a href="#ombak" class="mobile-link"><span class="nav-jp">波辺</span> Simulasi Ombak</a>
+      <a href="#skill" class="mobile-link"><span class="nav-jp">技術</span> Keahlian &amp; Alat</a>
+      <a href="#proyek" class="mobile-link"><span class="nav-jp">作品</span> Proyek Pilihan</a>
+      <a href="#perjalanan" class="mobile-link"><span class="nav-jp">軌跡</span> Perjalanan</a>
+      <a href="#kontak" class="mobile-link"><span class="nav-jp">連絡</span> Hubungi Saya</a>
+    </div>
   </div>
 
   <main>
     <!-- ==================== 2. HERO SECTION ==================== -->
-    <section class="hero" id="beranda">
-      <div class="container hero-grid">
+    <section class="hero-section" id="beranda">
+      <div class="container hero-container">
+        <!-- Left: Hero Text & Identity -->
         <div class="hero-content">
-          <div class="hero-badge-status">
-            <span class="status-dot"></span>
-            <span>Mahasiswa Aktif & Terbuka untuk Kolaborasi</span>
+          <!-- Japanese Ribbon Eyebrow -->
+          <div class="hero-eyebrow">
+            <span class="eyebrow-stamp">神奈川の潮風</span>
+            <span class="eyebrow-text">Kamakura Coastal Vibe • S1 Informatika UNSIL</span>
           </div>
 
-          <p class="hero-greeting"><i class="fa-solid fa-angle-right"></i> Halo semua, saya</p>
-          <h1 class="hero-name">Muhammad <span class="gradient-text">Farrel</span></h1>
+          <div class="hero-greeting">
+            <span class="greeting-jp">こんにちは、私は</span>
+            <span class="greeting-id">Halo semua, saya</span>
+          </div>
 
+          <h1 class="hero-name">
+            Muhammad <span class="pastel-gradient-name">Farrel</span>
+            <span class="hero-ruby-name">ムハンマド・ファレル (Noel)</span>
+          </h1>
+
+          <!-- Tagline with Seeded Typewriter Text -->
           <div class="hero-tagline-wrapper">
-            <span class="text-green">&gt;</span>
-            <span id="typing-text">Mahasiswa S1 Teknik Informatika</span>
+            <span class="tagline-bullet">✦</span>
+            <span id="typing-text">Mahasiswa S1 Teknik Informatika (UNSIL)</span>
             <span class="typed-cursor" aria-hidden="true"></span>
           </div>
 
-          <p class="hero-description">
-            Mahasiswa Teknik Informatika Universitas Siliwangi yang senang memecahkan masalah melalui baris kode.
-            Fokus membangun automasi bot, logika game interaktif, serta aplikasi web yang fungsional dan terstruktur.
+          <p class="hero-bio">
+            Merancang perangkat lunak dengan ketenangan angin pesisir dan ketelitian baris kode.
+            Fokus membangun aplikasi web modern, automasi bot pintar, serta sistem interaktif
+            yang mempermudah kebutuhan nyata mahasiswa dan komunitas.
           </p>
 
+          <!-- Action Buttons -->
           <div class="hero-actions">
-            <a href="#proyek" class="btn btn-primary">
-              <i class="fa-solid fa-code"></i> Lihat Proyek
+            <a href="#proyek" class="btn btn-pastel-primary">
+              <i class="fa-solid fa-compass"></i>
+              <span>Jelajahi Karya</span>
             </a>
-            <a href="#kontak" class="btn btn-secondary">
-              <i class="fa-solid fa-paper-plane"></i> Hubungi Aku
+            <a href="#ombak" class="btn btn-pastel-secondary">
+              <i class="fa-solid fa-water"></i>
+              <span>Lihat Ombak Realistis</span>
             </a>
+          </div>
+
+          <!-- Quick Micro Metrics -->
+          <div class="hero-quick-pills">
+            <div class="quick-pill">
+              <span class="pill-dot"></span>
+              <span>UNSIL Semester 1</span>
+            </div>
+            <div class="quick-pill">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Tasikmalaya, Jawa Barat</span>
+            </div>
+            <div class="quick-pill">
+              <i class="fa-brands fa-github"></i>
+              <span>@NnoeeL</span>
+            </div>
           </div>
         </div>
 
-        <!-- Terminal Window Mockup Visual -->
+        <!-- Right: Anime Polaroid Profile Vignette -->
         <div class="hero-visual">
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="terminal-dot dot-red"></span>
-                <span class="terminal-dot dot-yellow"></span>
-                <span class="terminal-dot dot-green"></span>
+          <div class="polaroid-wrapper">
+            <!-- Washi Tape Accent -->
+            <div class="washi-tape washi-top"></div>
+
+            <div class="polaroid-card">
+              <div class="polaroid-photo-frame">
+                <img src="assets/profile.jpg" alt="Muhammad Farrel (Noel)" class="polaroid-img"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\' fill=\'%23e0f2fe\'><circle cx=\'100\' cy=\'85\' r=\'45\' fill=\'%237dd3fc\'/><path d=\'M30 190c0-40 30-65 70-65s70 25 70 65z\' fill=\'%2338bdf8\'/></svg>'">
+                <!-- Floating Mini Badge -->
+                <div class="polaroid-badge">
+                  <span class="badge-icon">🌊</span>
+                  <span>Active Student</span>
+                </div>
               </div>
-              <span class="terminal-title">bash — nnoel@portfolio:~</span>
-              <span class="font-mono text-dim" style="font-size: 0.7rem;">v2.4.0</span>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-line">
-                <span class="terminal-prompt">nnoel@arch:~$</span> neofetch --profile
-              </div>
-              <div class="term-profile-grid">
-                <div class="term-row"><span class="term-key">nama</span><span class="term-sep">:</span> <span
-                    class="term-val text-cyan">Muhammad Farrel (Noel)</span></div>
-                <div class="term-row"><span class="term-key">handle</span><span class="term-sep">:</span> <span
-                    class="term-val text-cyan">@NnoeeL</span></div>
-                <div class="term-row"><span class="term-key">kampus</span><span class="term-sep">:</span> <span
-                    class="term-val">UNSIL • S1 Informatika (Sem. 1)</span></div>
-                <div class="term-row"><span class="term-key">keahlian</span><span class="term-sep">:</span> <span
-                    class="term-val">Bot Automation, Game Dev, Web</span></div>
-                <div class="term-row"><span class="term-key">teknologi</span><span class="term-sep">:</span> <span
-                    class="term-val">JavaScript, TypeScript, Python, Lua</span></div>
-                <div class="term-row"><span class="term-key">status</span><span class="term-sep">:</span> <span
-                    class="term-val text-green">[●] Siap Kolaborasi &amp; Proyek Baru</span></div>
-              </div>
-              <div class="terminal-line term-commit-line">
-                <span class="terminal-prompt">nnoel@arch:~$</span> git commit -m "build the future"
-              </div>
-              <div class="terminal-line text-green">
-                [main 8a1f29c] build the future — 100% verified.
+
+              <div class="polaroid-caption">
+                <div class="caption-title">Farrel (Noel)</div>
+                <div class="caption-sub">35°18'N 139°32'E • Shonan Coastline</div>
+                <div class="caption-quote">「静かな波のように、着実に。」</div>
               </div>
             </div>
+
+            <div class="washi-tape washi-bottom"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 3. TENTANG AKU (ABOUT) ==================== -->
-    <section class="about" id="tentang">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">// 01. TENTANG SAYA</span>
-          <h2 class="section-title">Eksplorasi & Dedikasi</h2>
-          <p class="section-subtitle">Mengenal lebih dekat latar belakang akademis dan ketertarikan teknologi saya.</p>
+    <!-- ==================== 3. FLOWING REALISTIC OCEAN WAVES SECTION ==================== -->
+    <section class="waves-showcase-section" id="ombak">
+      <div class="waves-section-header">
+        <div class="container">
+          <div class="section-badge">
+            <span class="badge-kanji">波辺の情景</span>
+            <span>SIMULASI OMBAK PANTAI</span>
+          </div>
+          <h2 class="section-heading">Aliran Ombak &amp; Pesisir Realistis</h2>
+          <p class="section-subtext">
+            Simulasi fisika fluida Gerstner non-linear multi-lapisan di atas pasir pantai pastel.
+            Gerakkan kursor atau sentuh area ombak untuk menciptakan riak air interaktif.
+          </p>
         </div>
+      </div>
+
+      <!-- Live Ocean Canvas Shoreline Container -->
+      <div class="wave-canvas-viewport">
+        <canvas id="ocean-canvas" class="ocean-canvas" aria-label="Simulasi ombak pantai interaktif"></canvas>
+
+        <!-- Wave Interactive Controls Overlay -->
+        <div class="wave-controls-overlay">
+          <div class="wave-stat-pill">
+            <span class="wave-indicator-pulse"></span>
+            <span id="wave-fps-counter">60 FPS</span> • Fisika Gerstner 4-Layer
+          </div>
+          <div class="wave-hint-pill">
+            <i class="fa-solid fa-hand-pointer"></i> Klik / Geser mouse pada air untuk memicu riak
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. TENTANG SAYA (ABOUT) ==================== -->
+    <section class="about-section" id="tentang">
+      <div class="container">
+        <div class="section-badge">
+          <span class="badge-kanji">自己紹介</span>
+          <span>// 01. TENTANG SAYA</span>
+        </div>
+        <h2 class="section-heading">Eksplorasi Logika di Antara Pesisir &amp; Kode</h2>
+        <p class="section-subtext">
+          Mengenal perjalanan teknis, dedikasi, serta filosofi pengembangan saya.
+        </p>
 
         <div class="about-grid">
-          <!-- Profile Card / Avatar -->
-          <div class="profile-card reveal">
-            <div class="profile-avatar-wrapper">
-              <img src="assets/profile.jpg" alt="Muhammad Farrel (Noel)" class="profile-avatar">
+          <!-- Story Card -->
+          <div class="about-story-card">
+            <div class="card-ribbon-tag">
+              <span class="ribbon-icon">🌸</span>
+              <span>Filosofi &amp; Latar Belakang</span>
             </div>
-            <h3 class="profile-name">Muhammad Farrel</h3>
-            <p class="profile-role">@NnoeeL • Developer & Student</p>
-            <div class="profile-campus-pill">
-              <i class="fa-solid fa-graduation-cap text-green"></i>
-              <span>Universitas Siliwangi (UNSIL) • S1 Informatika</span>
+            <h3 class="story-title">Ketekunan, Sederhana, dan Berdampak</h3>
+            <div class="story-paragraphs">
+              <p>
+                Halo! Saya Muhammad Farrel (biasa dipanggil <strong>Noel</strong>), mahasiswa S1 Teknik Informatika di <strong>Universitas Siliwangi (UNSIL)</strong>, Tasikmalaya. Ketertarikan saya pada dunia pemrograman bermula dari rasa penasaran bagaimana baris logika dapat bertransformasi menjadi alat nyata yang menyelesaikan masalah sehari-hari.
+              </p>
+              <p>
+                Saya memegang prinsip <em>"kode yang baik adalah kode yang bersih dan minimal"</em> — fokus pada akar permasalahan, memanfaatkan fitur bawaan platform secara optimal, dan menghindari kompleksitas yang tidak perlu.
+              </p>
+              <p>
+                Dari arsitektur web responsif, automasi bot WhatsApp multi-device, ekosistem superapp kampus <strong>Sahabat Mahasiswa</strong>, hingga game scripting berbasis Luau di Roblox Studio, setiap karya saya rancang dengan perhatian pada keandalan fungsi dan estetika pengguna.
+              </p>
+            </div>
+
+            <!-- Authentic Japanese Aesthetic Callout -->
+            <div class="japanese-quote-box">
+              <span class="quote-kanji">「波のように、一歩ずつ着実に。」</span>
+              <span class="quote-id">"Seperti deburan ombak yang tiada henti, terus melangkah maju dengan pasti."</span>
             </div>
           </div>
 
-          <!-- Code Editor Window Mockup -->
-          <div class="about-details reveal">
-            <div class="editor-window">
-              <div class="editor-header">
-                <div class="editor-tabs">
-                  <div class="editor-tab">
-                    <i class="fa-solid fa-file-code text-green"></i> farrel.ts
-                  </div>
-                </div>
-                <div class="terminal-dots">
-                  <span class="terminal-dot dot-red"></span>
-                  <span class="terminal-dot dot-yellow"></span>
-                  <span class="terminal-dot dot-green"></span>
-                </div>
+          <!-- Quick Stats & Facts Bento -->
+          <div class="about-stats-bento">
+            <div class="pastel-stat-box box-blue">
+              <div class="stat-number-wrapper">
+                <span class="stat-number">1</span>
+                <span class="stat-unit">Sem.</span>
               </div>
-              <div class="editor-content">
-                <p>
-                  Halo! Saya adalah mahasiswa S1 Teknik Informatika di Universitas Siliwangi (UNSIL) yang memiliki antusiasme mendalam terhadap rekayasa perangkat lunak dan otomatisasi. Perjalanan ngoding saya berawal dari rasa ingin tahu bagaimana sebuah logika komputasi dapat mempermudah pekerjaan sehari-hari.
-                </p>
-                <p>
-                  Saya senang mengulik arsitektur web modern dari sisi front-end hingga backend API, membangun automasi bot pesan untuk efisiensi komunikasi, serta merancang pengalaman interaktif di game engine. Bagi saya, kode yang baik adalah kode yang rapi, efisien, dan memberikan solusi nyata.
-                </p>
-              </div>
+              <div class="stat-label">Semester Berjalan</div>
+              <div class="stat-desc">S1 Informatika UNSIL Angkatan 2026</div>
             </div>
 
-            <!-- 3 Statistik Singkat -->
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-value" id="stat-semester">1</div>
-                <div class="stat-label">Semester Berjalan</div>
+            <div class="pastel-stat-box box-pink">
+              <div class="stat-number-wrapper">
+                <span class="stat-number">15+</span>
               </div>
-              <div class="stat-card">
-                <div class="stat-value" id="stat-proyek">15+</div>
-                <div class="stat-label">Proyek Selesai</div>
+              <div class="stat-label">Proyek &amp; Eksplorasi</div>
+              <div class="stat-desc">Web, Bot WhatsApp, Luau Game Engine</div>
+            </div>
+
+            <div class="pastel-stat-box box-mint">
+              <div class="stat-number-wrapper">
+                <span class="stat-number">8+</span>
               </div>
-              <div class="stat-card">
-                <div class="stat-value" id="stat-tech">8+</div>
-                <div class="stat-label">Bahasa & Tools</div>
+              <div class="stat-label">Bahasa &amp; Ekosistem</div>
+              <div class="stat-desc">JS, TS, Python, Luau, Electron, dsb.</div>
+            </div>
+
+            <div class="pastel-stat-box box-sand">
+              <div class="stat-number-wrapper">
+                <span class="stat-number">100%</span>
               </div>
+              <div class="stat-label">Solusi Berorientasi Nyata</div>
+              <div class="stat-desc">Solusi fungsional untuk pengguna nyata</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 4. SKILL SECTION ==================== -->
-    <section class="skills" id="skill">
+    <!-- ==================== 5. SKILL & KEAHLIAN ==================== -->
+    <section class="skills-section" id="skill">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">// 02. KEAHLIAN & TEKNOLOGI</span>
-          <h2 class="section-title">Teknologi yang Dikuasai</h2>
-          <p class="section-subtitle">Daftar bahasa pemrograman, framework, dan peralatan kerja yang sering saya gunakan.</p>
+        <div class="section-badge">
+          <span class="badge-kanji">技術スタック</span>
+          <span>// 02. KEAHLIAN &amp; TEKNOLOGI</span>
         </div>
+        <h2 class="section-heading">Bahasa, Lingkungan &amp; Peralatan</h2>
+        <p class="section-subtext">
+          Instrumen teknis yang saya gunakan untuk mewujudkan gagasan menjadi perangkat lunak yang andal.
+        </p>
 
-        <!-- Skill Categories (Dikelompokkan secara terstruktur & dirender via JS) -->
-        <div class="skills-grid" id="skills-container">
-          <!-- Konten skill akan dirender secara dinamis oleh script.js -->
+        <!-- Dynamic Skills Grid -->
+        <div class="skills-categories-grid" id="skills-container">
+          <!-- Populated dynamically via script.js -->
         </div>
       </div>
     </section>
 
-    <!-- ==================== 5. PROYEK SECTION ==================== -->
-    <section class="projects" id="proyek">
+    <!-- ==================== 6. PROYEK PILIHAN ==================== -->
+    <section class="projects-section" id="proyek">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">// 03. KARYA & PORTOFOLIO</span>
-          <h2 class="section-title">Proyek Pilihan</h2>
-          <p class="section-subtitle">Beberapa proyek yang telah saya kembangkan dari bot otomatisasi hingga aplikasi mahasiswa.</p>
+        <div class="section-badge">
+          <span class="badge-kanji">主要プロジェクト</span>
+          <span>// 03. KARYA &amp; PORTOFOLIO</span>
         </div>
+        <h2 class="section-heading">Proyek Pilihan &amp; Solusi Nyata</h2>
+        <p class="section-subtext">
+          Koleksi aplikasi web, ekosistem utilitas kampus, automasi bot, dan logika game interaktif.
+        </p>
 
-        <!-- Proyek Grid (Dirender dari array JavaScript di script.js) -->
+        <!-- Dynamic Projects Grid (2 Pilihan Unggulan) -->
         <div class="projects-grid" id="projects-container">
-          <!-- Konten proyek akan dirender secara dinamis oleh script.js -->
+          <article class="project-card" id="proyek-1">
+            <div class="project-top-row">
+              <span class="project-category-badge">
+                <i class="fa-solid fa-sparkles"></i> Flagship Superapp
+              </span>
+              <div class="project-icon-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+            </div>
+            <h3 class="project-title">Sahabat Mahasiswa</h3>
+            <p class="project-description">
+              Ekosistem pendamping kebutuhan mahasiswa terintegrasi lintas Web PWA, Android APK, dan Windows Electron. Menghadirkan pencarian kosan akurat (radius 10km UNSIL/Tasikmalaya), kalkulasi IPK, pelacak tugas kuliah, dan jadwal kampus dengan dukungan arsitektur offline-first.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">PWA</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Electron</span>
+              <span class="project-tag">Android WebView</span>
+              <span class="project-tag">Dalvik Pipeline</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://sahabatmahasiswa.site" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Kunjungi Web</span>
+              </a>
+              <a href="https://github.com/NnoeeL" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-outline">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card" id="proyek-2">
+            <div class="project-top-row">
+              <span class="project-category-badge">
+                <i class="fa-solid fa-sparkles"></i> AI Architecture &amp; PRD Planner
+              </span>
+              <div class="project-icon-box">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+            </div>
+            <h3 class="project-title">BikinPlan</h3>
+            <p class="project-description">
+              Platform perencana arsitektur perangkat lunak cerdas dan generator PRD terstruktur untuk AI coding agents (Claude Code, Hermes Agent, Antigravity, dsb.). Menganalisis ide fitur, merekomendasikan tech stack modern (TanStack Start, Next.js 15, Vite React) &amp; sistem autentikasi aman, merancang skema DDL PostgreSQL, kontrak REST API, serta menyusun 24 tasks board berfase dengan Master Prompt instan siap kirim.
+            </p>
+            <div class="project-tags-row">
+              <span class="project-tag">AI Architecture</span>
+              <span class="project-tag">PRD Generator</span>
+              <span class="project-tag">TanStack / Next.js</span>
+              <span class="project-tag">PostgreSQL DDL</span>
+              <span class="project-tag">Prompt Engineering</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://nnoeel.github.io/BikinPlan/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Buka BikinPlan</span>
+              </a>
+              <a href="https://github.com/NnoeeL" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-outline">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 6. PERJALANAN (TIMELINE) SECTION ==================== -->
-    <section class="journey" id="perjalanan">
+    <!-- ==================== 7. PERJALANAN (TIMELINE) ==================== -->
+    <section class="journey-section" id="perjalanan">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">// 04. JEJAK LANGKAH</span>
-          <h2 class="section-title">Perjalanan & Pencapaian</h2>
-          <p class="section-subtitle">Rangkuman riwayat pendidikan, kegiatan organisasi, dan pengalaman teknis saya.</p>
+        <div class="section-badge">
+          <span class="badge-kanji">歩みと軌跡</span>
+          <span>// 04. JEJAK LANGKAH</span>
         </div>
+        <h2 class="section-heading">Perjalanan Akademis &amp; Eksplorasi</h2>
+        <p class="section-subtext">
+          Tahapan dedikasi saya dalam menempuh pendidikan formal dan pengembangan proyek mandiri.
+        </p>
 
-        <div class="timeline-wrapper" id="timeline-container">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
+        <div class="journey-timeline">
+          <!-- Milestone 1 -->
+          <div class="timeline-node">
+            <div class="timeline-indicator">
+              <span class="indicator-ring"></span>
+              <span class="indicator-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            </div>
             <div class="timeline-card">
-              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2026 — Sekarang (Semester 1)</span>
-              <h3 class="timeline-title">S1 Teknik Informatika</h3>
-              <p class="timeline-subtitle">Universitas Siliwangi (UNSIL) • Angkatan 2026</p>
+              <div class="timeline-meta">
+                <span class="timeline-year"><i class="fa-regular fa-calendar"></i> 2026 — Sekarang (Semester 1)</span>
+                <span class="timeline-tag">Perkuliahan Aktif</span>
+              </div>
+              <h3 class="timeline-title">S1 Teknik Informatika — Universitas Siliwangi (UNSIL)</h3>
+              <p class="timeline-place">Fakultas Teknik, Universitas Siliwangi • Tasikmalaya</p>
               <p class="timeline-desc">
-                Baru memulai perjalanan perkuliahan di S1 Informatika UNSIL semester 1. Fokus mendalami logika matematika, dasar algoritma, pemrograman terstruktur, dan antusias membuat proyek berbasis solusi digital.
+                Menempuh jenjang sarjana pada program studi Teknik Informatika di UNSIL. Mendalami dasar algoritma, logika matematika, rekayasa perangkat lunak, dan aktif membangun proyek-proyek bernilai guna bagi sesama mahasiswa.
               </p>
             </div>
           </div>
 
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
+          <!-- Milestone 2 -->
+          <div class="timeline-node">
+            <div class="timeline-indicator">
+              <span class="indicator-ring"></span>
+              <span class="indicator-icon"><i class="fa-solid fa-layer-group"></i></span>
+            </div>
             <div class="timeline-card">
-              <span class="timeline-date"><i class="fa-solid fa-robot"></i> Automasi & Bot</span>
-              <h3 class="timeline-title">Pengembangan Bot & Integrasi Web</h3>
-              <p class="timeline-subtitle">Proyek Mandiri & Komunitas</p>
+              <div class="timeline-meta">
+                <span class="timeline-year"><i class="fa-solid fa-mobile-screen"></i> Cross-Platform Utility</span>
+                <span class="timeline-tag">Flagship Ecosystem</span>
+              </div>
+              <h3 class="timeline-title">Perancangan &amp; Rilis "Sahabat Mahasiswa"</h3>
+              <p class="timeline-place">Web PWA, Android APK WebView v2/v3, &amp; Windows Desktop Bundle</p>
               <p class="timeline-desc">
-                Mengeksplorasi ekosistem Node.js, WebSockets, dan Baileys untuk membangun bot WhatsApp multi-device otomatis dengan fitur auto-responder, pengingat, dan integrasi webhook.
+                Membangun ekosistem utilitas kampus komprehensif: pencarian kosan terdekat (akurasi radius 10km Tasikmalaya/UNSIL), kalkulator IPK, pelacak tugas, dan jadwal offline-first. Memecahkan tantangan arsitektur fallback lintas WebView dan Electron.
               </p>
             </div>
           </div>
 
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
+          <!-- Milestone 3 -->
+          <div class="timeline-node">
+            <div class="timeline-indicator">
+              <span class="indicator-ring"></span>
+              <span class="indicator-icon"><i class="fa-solid fa-diagram-project"></i></span>
+            </div>
             <div class="timeline-card">
-              <span class="timeline-date"><i class="fa-solid fa-gamepad"></i> Game Development</span>
-              <h3 class="timeline-title">Eksplorasi Skrip Luau & Roblox Studio</h3>
-              <p class="timeline-subtitle">GitHub (@NnoeeL) & Kreator Game</p>
+              <div class="timeline-meta">
+                <span class="timeline-year"><i class="fa-solid fa-brain"></i> AI Architecture &amp; PRD</span>
+                <span class="timeline-tag">Production Tool</span>
+              </div>
+              <h3 class="timeline-title">Perancangan &amp; Rilis "BikinPlan"</h3>
+              <p class="timeline-place">nnoeel.github.io/BikinPlan • Generator PRD &amp; Rekomendasi Stack AI</p>
               <p class="timeline-desc">
-                Merancang gameplay mechanics, logika puzzle, tata cahaya atmosferik, dan sinkronisasi server-client multiplayer menggunakan bahasa Lua/Luau pada platform Roblox Studio.
+                Mengembangkan platform perencana arsitektur dan generator PRD terstruktur untuk AI coding agents. Menghasilkan rekomendasi stack (TanStack Start, Next.js 15), skema PostgreSQL, kontrak REST API, dan 24 tasks board berfase lengkap dengan Master Prompt 1-klik siap kirim.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="timeline-node">
+            <div class="timeline-indicator">
+              <span class="indicator-ring"></span>
+              <span class="indicator-icon"><i class="fa-solid fa-gamepad"></i></span>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-year"><i class="fa-solid fa-cube"></i> Game Dev &amp; Physics</span>
+                <span class="timeline-tag">Luau Scripting</span>
+              </div>
+              <h3 class="timeline-title">Eksplorasi Game Mechanics di Roblox Studio</h3>
+              <p class="timeline-place">Roblox Studio, Luau OOP, DataStore v2</p>
+              <p class="timeline-desc">
+                Mengimplementasikan sistem gameplay terstruktur: manipulasi physics engine, kustomisasi karakter modular, penyimpanan data inventori pemain yang aman dari kehilangan data, dan sinkronisasi server-client berlatensi rendah.
               </p>
             </div>
           </div>
@@ -317,72 +531,76 @@
       </div>
     </section>
 
-    <!-- ==================== 7. TEMUI AKU (KONTAK) ==================== -->
-    <section class="contact" id="kontak">
-      <div class="container contact-container">
-        <div class="section-header reveal" style="text-align: center;">
-          <span class="section-tag">// 05. HUBUNGI SAYA</span>
-          <h2 class="section-title">Mari Berkolaborasi!</h2>
-          <p class="section-subtitle" style="margin: 0 auto;">Punya pertanyaan, ide proyek menarik, atau sekadar ingin berdiskusi seputar teknologi? Pintu inbox saya selalu terbuka.</p>
+    <!-- ==================== 8. KONTAK (MARI BERKOLABORASI) ==================== -->
+    <section class="contact-section" id="kontak">
+      <div class="container">
+        <div class="section-badge" style="justify-content: center;">
+          <span class="badge-kanji">お問い合わせ</span>
+          <span>// 05. HUBUNGI SAYA</span>
         </div>
+        <h2 class="section-heading" style="text-align: center;">Mari Bertemu &amp; Berkolaborasi</h2>
+        <p class="section-subtext" style="text-align: center; margin-left: auto; margin-right: auto;">
+          Pintu inbox saya selalu terbuka untuk diskusi teknologi, ide proyek baru, atau sekadar bertukar sapa.
+        </p>
 
-        <div class="contact-box reveal">
-          <p class="contact-intro">
-            Jangan ragu untuk menyapa melalui kanal komunikasi atau media sosial berikut:
-          </p>
+        <div class="contact-card">
+          <!-- Japanese Traditional Idiom Ribbon -->
+          <div class="ichigo-ichie-badge">
+            <span class="kanji-seal">一期一会</span>
+            <span class="seal-desc">"Ichigo Ichie" — Setiap pertemuan adalah anugerah berharga</span>
+          </div>
 
-          <!-- Email Copy Bar -->
-          <div class="contact-email-bar">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <i class="fa-solid fa-envelope text-green"></i>
-              <span class="email-address" id="email-text">farrelch21@gmail.com</span>
+          <!-- Email Copy Box -->
+          <div class="contact-email-wrapper">
+            <div class="email-visual-group">
+              <div class="email-icon-bubble">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="email-text-info">
+                <span class="email-label">Surel Resmi:</span>
+                <span class="email-address" id="email-text">farrelch21@gmail.com</span>
+              </div>
             </div>
-            <div style="display: flex; gap: 0.5rem;">
-              <button class="copy-btn" id="copy-email-btn" title="Salin Email ke Clipboard">
+
+            <div class="email-actions-group">
+              <button class="btn btn-copy" id="copy-email-btn" title="Salin Email ke Clipboard">
                 <i class="fa-regular fa-copy"></i>
-                <span>Salin Email</span>
+                <span id="copy-btn-text">Salin Email</span>
               </button>
-              <a href="mailto:farrelch21@gmail.com" class="copy-btn" style="text-decoration: none;"
-                title="Kirim Email Langsung">
+              <a href="mailto:farrelch21@gmail.com" class="btn btn-mailto" title="Kirim Pesan Langsung">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 <span>Mailto</span>
               </a>
             </div>
           </div>
 
-          <!-- Grid Sosial Media -->
-          <div class="contact-socials-grid">
-            <!-- GitHub -->
-            <a href="https://github.com/NnoeeL" target="_blank" rel="noopener noreferrer" class="social-card">
-              <div class="social-icon-wrapper">
-                <i class="fa-brands fa-github"></i>
+          <!-- Social Links Grid -->
+          <div class="contact-social-grid">
+            <a href="https://github.com/NnoeeL" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="social-meta">
+                <span class="social-name">GitHub</span>
+                <span class="social-handle">@NnoeeL</span>
               </div>
-              <div class="social-info">
-                <div class="social-platform">GitHub</div>
-                <div class="social-handle">@NnoeeL</div>
-              </div>
+              <i class="fa-solid fa-chevron-right social-arrow"></i>
             </a>
 
-            <!-- Instagram -->
-            <a href="https://instagram.com/nnoelfr" target="_blank" rel="noopener noreferrer" class="social-card">
-              <div class="social-icon-wrapper">
-                <i class="fa-brands fa-instagram"></i>
+            <a href="https://instagram.com/nnoelfr" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-icon"><i class="fa-brands fa-instagram"></i></div>
+              <div class="social-meta">
+                <span class="social-name">Instagram</span>
+                <span class="social-handle">@nnoelfr</span>
               </div>
-              <div class="social-info">
-                <div class="social-platform">Instagram</div>
-                <div class="social-handle">@nnoelfr</div>
-              </div>
+              <i class="fa-solid fa-chevron-right social-arrow"></i>
             </a>
 
-            <!-- TikTok -->
-            <a href="https://tiktok.com/@nno3el" target="_blank" rel="noopener noreferrer" class="social-card">
-              <div class="social-icon-wrapper">
-                <i class="fa-brands fa-tiktok"></i>
+            <a href="https://tiktok.com/@nno3el" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-icon"><i class="fa-brands fa-tiktok"></i></div>
+              <div class="social-meta">
+                <span class="social-name">TikTok</span>
+                <span class="social-handle">@nno3el</span>
               </div>
-              <div class="social-info">
-                <div class="social-platform">TikTok</div>
-                <div class="social-handle">@nno3el</div>
-              </div>
+              <i class="fa-solid fa-chevron-right social-arrow"></i>
             </a>
           </div>
         </div>
@@ -390,29 +608,41 @@
     </section>
   </main>
 
-  <!-- ==================== 8. FOOTER ==================== -->
+  <!-- ==================== 9. FOOTER ==================== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-code-quote">
-        <code>// dibuat dengan kopi dan baris kode yang rapi.</code>
+    <div class="container footer-container">
+      <div class="footer-brand-side">
+        <div class="footer-logo-box">
+          <img src="assets/portfolio-logo.svg" alt="Noel Portfolio Logo" class="footer-portfolio-logo">
+        </div>
+        <div>
+          <div class="footer-title">Muhammad Farrel (Noel)</div>
+          <div class="footer-sub">S1 Teknik Informatika • Universitas Siliwangi (UNSIL)</div>
+        </div>
       </div>
-      <p class="footer-copy">
-        &copy; <span id="current-year">2026</span> Muhammad Farrel (Noel). Hak Cipta Dilindungi Undang-Undang.
-      </p>
+
+      <div class="footer-quote-side">
+        <code>// 潮風とコードのハーモニー • Crafted with clean minimal logic</code>
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Muhammad Farrel. Dirancang bernuansa pantai anime soft pastel.
+        </p>
+      </div>
     </div>
   </footer>
 
-  <!-- Floating Back to Top Button -->
+  <!-- Floating Back-to-Top Button -->
   <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
-    <i class="fa-solid fa-chevron-up"></i>
+    <i class="fa-solid fa-arrow-up"></i>
+    <span class="back-to-top-jp">頂上</span>
   </button>
 
-  <!-- Toast Notification untuk Salin Email -->
-  <div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check"></i> Alamat email berhasil disalin ke clipboard!
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Alamat email berhasil disalin ke clipboard!</span>
   </div>
 
-  <!-- Script Interaktivitas -->
+  <!-- JavaScript Interaktivitas & Simulasi Ombak -->
   <script src="script.js"></script>
 </body>
 

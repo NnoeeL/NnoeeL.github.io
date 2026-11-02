@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+  <defs>
+    <linearGradient id="pBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#fce7f3"/>
+    </linearGradient>
+    <linearGradient id="pStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <!-- Minimalist squircle badge -->
+  <rect x="1.5" y="1.5" width="33" height="33" rx="9" fill="url(#pBadge)" stroke="url(#pStroke)" stroke-width="1.2"/>
+  
+  <!-- Terminal Prompt > -->
+  <path d="M9 13.5 L13.5 18 L9 22.5" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Monogram N (Noel) -->
+  <path d="M17 22.5 L17 13.5 L24 22.5 L24 13.5" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Subtle Wave Underline (Coastal touch) -->
+  <path d="M16 26.5 Q18 25 20 26.5 T24 26.5" fill="none" stroke="#f472b6" stroke-width="1.4" stroke-linecap="round"/>
+</svg>
