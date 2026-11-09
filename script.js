@@ -271,6 +271,9 @@
       });
       this.canvas.addEventListener("click", addRipple);
       this.canvas.addEventListener("touchstart", addRipple, { passive: true });
+      this.canvas.addEventListener("touchmove", (e) => {
+        if (Math.random() < 0.25) addRipple(e);
+      }, { passive: true });
 
       // Page Visibility API untuk menghemat baterai saat tab tidak aktif
       document.addEventListener("visibilitychange", () => {
@@ -843,13 +846,32 @@
       hamburger.addEventListener("click", () => {
         const isOpen = mobileMenu.classList.toggle("open");
         hamburger.setAttribute("aria-expanded", isOpen.toString());
+        mobileMenu.setAttribute("aria-hidden", (!isOpen).toString());
       });
 
       mobileLinks.forEach((link) => {
         link.addEventListener("click", () => {
           mobileMenu.classList.remove("open");
           hamburger.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
         });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (mobileMenu.classList.contains("open") && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+          mobileMenu.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+          mobileMenu.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+          hamburger.focus();
+        }
       });
     }
 
