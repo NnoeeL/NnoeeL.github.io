@@ -30,6 +30,7 @@ Seluruh kode dibangun secara murni (*vanilla*) tanpa framework berat, memastikan
 4. **Showcase Proyek Nyata & Terverifikasi**
    - **Sahabat Mahasiswa:** Superapp kebutuhan mahasiswa (pencarian kosan radius 10 km UNSIL/Tasikmalaya, kalkulator IPK, pelacak tugas) dengan arsitektur *offline-first* lintas Web PWA, Android APK, dan Windows Electron.
    - **BikinPlan:** Platform perencana arsitektur perangkat lunak untuk menyusun PRD terstruktur, skema DDL PostgreSQL, kontrak REST API, dan 24 task board pengembangan.
+   - **ArsipBelajar:** Aplikasi belajar mandiri cerdas untuk mengonversi materi kuliah, dokumen, dan tautan YouTube menjadi ringkasan, flashcard bersistem Leitner, dan kuis interaktif.
    - Dilengkapi screenshot pratinjau antarmuka dan penjelasan tantangan teknis tersulit yang dipecahkan pada masing-masing proyek.
 
 5. **Aksesibilitas & Kode Bersih**

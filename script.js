@@ -88,6 +88,21 @@
       demoText: "Buka BikinPlan",
       repoUrl: "https://github.com/NnoeeL",
     },
+    {
+      id: "proyek-3",
+      category: "Platform Belajar Mandiri AI",
+      title: "ArsipBelajar",
+      previewImg: "assets/project-arsipbelajar.png",
+      description:
+        "Aplikasi belajar mandiri berbasis web yang mengonversi catatan kuliah, dokumen (PDF/DOCX/TXT), dan tautan video YouTube menjadi ringkasan materi, flashcard dengan metode pengulangan terjadwal (Leitner System), serta kuis latihan interaktif.",
+      challenge:
+        "Mengintegrasikan ekstraksi materi multi-format (dokumen dan transkrip YouTube) dengan generator AI (Gemini/Groq) untuk menghasilkan kuis dan flashcard sistem Leitner yang tersimpan offline di browser sekaligus tersinkronisasi ke Firebase.",
+      tags: ["PWA", "JavaScript", "Firebase", "Gemini & Groq AI", "Leitner System"],
+      icon: "fa-solid fa-book-open",
+      demoUrl: "https://arsipbelajar.pages.dev/",
+      demoText: "Buka ArsipBelajar",
+      repoUrl: "https://github.com/NnoeeL/ArsipBelajar",
+    },
   ];
 
   // ==========================================================================
@@ -731,7 +746,7 @@
       "Mahasiswa S1 Teknik Informatika (UNSIL)",
       "Pengembang Web & Aplikasi Praktis",
       "Automasi Bot WhatsApp & Scripting",
-      "Pembuat Sahabat Mahasiswa & BikinPlan",
+      "Kreator Sahabat Mahasiswa & ArsipBelajar",
     ];
 
     let phraseIdx = 0;
