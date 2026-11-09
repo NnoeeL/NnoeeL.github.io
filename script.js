@@ -22,7 +22,6 @@
   const skillCategories = [
     {
       titleMain: "Bahasa & Kode",
-      titleJp: "言語とコード",
       icon: "fa-solid fa-code",
       skills: [
         { name: "JavaScript (ESNext)", icon: "fa-brands fa-js" },
@@ -30,32 +29,27 @@
         { name: "HTML5 Semantic", icon: "fa-brands fa-html5" },
         { name: "CSS3 / Modern CSS", icon: "fa-brands fa-css3-alt" },
         { name: "Python", icon: "fa-brands fa-python" },
-        { name: "Luau / Lua", icon: "fa-solid fa-gamepad" },
       ],
     },
     {
       titleMain: "Platform & Runtime",
-      titleJp: "ランタイム & ツール",
       icon: "fa-solid fa-cubes",
       skills: [
         { name: "Node.js", icon: "fa-brands fa-node-js" },
         { name: "Electron Desktop", icon: "fa-solid fa-desktop" },
         { name: "Android WebView Bridge", icon: "fa-brands fa-android" },
         { name: "Git & GitHub", icon: "fa-brands fa-github" },
-        { name: "Roblox Studio", icon: "fa-solid fa-cube" },
         { name: "VS Code & Bash", icon: "fa-solid fa-terminal" },
       ],
     },
     {
       titleMain: "Arsitektur & Konsep",
-      titleJp: "設計とシステム",
       icon: "fa-solid fa-layer-group",
       skills: [
-        { name: "RESTful Webhooks", icon: "fa-solid fa-network-wired" },
-        { name: "Baileys & WebSocket", icon: "fa-solid fa-comments" },
+        { name: "REST API & Webhooks", icon: "fa-solid fa-network-wired" },
+        { name: "Baileys (WhatsApp Bot)", icon: "fa-solid fa-comments" },
         { name: "Offline-First PWA", icon: "fa-solid fa-shield-halved" },
-        { name: "Minimal Code (Lazy Dev)", icon: "fa-solid fa-bolt" },
-        { name: "UI/UX & Mobile Layout", icon: "fa-solid fa-mobile-screen" },
+        { name: "Mobile Responsive Layout", icon: "fa-solid fa-mobile-screen" },
       ],
     },
   ];
@@ -66,11 +60,14 @@
   const projectsData = [
     {
       id: "proyek-1",
-      category: "Flagship Superapp",
+      category: "Aplikasi Kampus Terintegrasi",
       title: "Sahabat Mahasiswa",
+      previewImg: "assets/project-sahabat.png",
       description:
-        "Ekosistem pendamping kebutuhan mahasiswa terintegrasi lintas Web PWA, Android APK, dan Windows Electron. Menghadirkan pencarian kosan akurat (radius 10km UNSIL/Tasikmalaya), kalkulasi IPK, pelacak tugas kuliah, dan jadwal kampus dengan dukungan arsitektur offline-first.",
-      tags: ["PWA", "JavaScript", "Electron", "Android WebView", "Dalvik Pipeline"],
+        "Ekosistem pendamping mahasiswa untuk mencari kosan di sekitar kampus UNSIL (radius 10 km Tasikmalaya), menghitung target IPK, dan mencatat jadwal kuliah. Dibangun dengan dukungan akses offline lintas Web PWA, Android APK, dan Windows Electron.",
+      challenge:
+        "Menjaga sinkronisasi data offline-first dan alur autentikasi fallback agar berjalan konsisten di Web, Android WebView (tanpa alert bawaan), dan Electron IPC.",
+      tags: ["PWA", "JavaScript", "Electron", "Android WebView", "Offline-First"],
       icon: "fa-solid fa-graduation-cap",
       demoUrl: "https://sahabatmahasiswa.site",
       demoText: "Kunjungi Web",
@@ -78,11 +75,14 @@
     },
     {
       id: "proyek-2",
-      category: "AI Architecture & PRD Planner",
+      category: "Perencana Arsitektur & PRD",
       title: "BikinPlan",
+      previewImg: "assets/project-bikinplan.png",
       description:
-        "Platform perencana arsitektur perangkat lunak cerdas dan generator PRD terstruktur untuk AI coding agents (Claude Code, Hermes Agent, Antigravity, dsb.). Menganalisis ide fitur, merekomendasikan tech stack modern (TanStack Start, Next.js 15, Vite React) & sistem autentikasi aman, merancang skema DDL PostgreSQL, kontrak REST API, serta menyusun 24 tasks board berfase dengan Master Prompt instan siap kirim.",
-      tags: ["AI Architecture", "PRD Generator", "TanStack / Next.js", "PostgreSQL DDL", "Prompt Engineering"],
+        "Platform perencana arsitektur perangkat lunak untuk mengonversi ide fitur menjadi dokumen spesifikasi terstruktur (PRD), rekomendasi stack modern, skema DDL PostgreSQL, serta checklist task pengembangan.",
+      challenge:
+        "Merancang generator terstruktur yang memecah ide aplikasi menjadi skema DDL PostgreSQL, kontrak REST API, dan 24 task checklist yang konsisten untuk AI coding agent tanpa halusinasi sintaks.",
+      tags: ["JavaScript", "PRD Generator", "PostgreSQL DDL", "REST API Contract", "AI Architecture"],
       icon: "fa-solid fa-diagram-project",
       demoUrl: "https://nnoeel.github.io/BikinPlan/",
       demoText: "Buka BikinPlan",
@@ -107,7 +107,6 @@
           </div>
           <div class="category-titles">
             <span class="category-title-main">${cat.titleMain}</span>
-            <span class="category-title-jp">${cat.titleJp}</span>
           </div>
         </div>
         <div class="skill-chips-list">
@@ -145,8 +144,17 @@
           </div>
         </div>
 
+        <div class="project-preview-frame">
+          <img src="${p.previewImg}" alt="Pratinjau antarmuka ${p.title}" class="project-preview-img">
+        </div>
+
         <h3 class="project-title">${p.title}</h3>
         <p class="project-description">${p.description}</p>
+
+        <div class="project-challenge-box">
+          <span class="challenge-label"><i class="fa-solid fa-wrench"></i> Tantangan Teknis Utama:</span>
+          <span class="challenge-text">${p.challenge}</span>
+        </div>
 
         <div class="project-tags-row">
           ${p.tags.map((t) => `<span class="project-tag">${t}</span>`).join("")}
@@ -721,9 +729,9 @@
 
     const phrases = [
       "Mahasiswa S1 Teknik Informatika (UNSIL)",
-      "Cross-Platform Web & Mobile Developer",
-      "Bot Automation & Luau Scripting Artisan",
-      "Minimalist Software Craftsman",
+      "Pengembang Web & Aplikasi Praktis",
+      "Automasi Bot WhatsApp & Scripting",
+      "Pembuat Sahabat Mahasiswa & BikinPlan",
     ];
 
     let phraseIdx = 0;
